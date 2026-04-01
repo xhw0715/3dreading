@@ -90,10 +90,24 @@ function loadJQuery() {
 
 function updateOlsData(data) {
   window.ols = data
+
+  // 更新 fliphtml5_pages 数组
+  window.fliphtml5_pages = data.map(item => {
+    if (item.imageUrl) {
+      return {
+        l: item.imageUrl,  // large 图片
+        n: item.imageUrl,  // normal 图片
+        t: item.imageUrl   // thumb 缩略图
+      }
+    }
+    return undefined
+  })
+
   if (window.bookConfig) {
     window.bookConfig.totalPageCount = data.length
   }
   console.log('目录数据已更新:', data)
+  console.log('图片路径已更新:', window.fliphtml5_pages)
 }
 
 function loadPdfReaderScripts() {
@@ -124,16 +138,32 @@ function loadPdfReaderScripts() {
       await loadScript('/pdfReader/js/LoadingJS.js')
       console.log('已加载: LoadingJS.js')
 
-      // 3. 注入 ols 数据
+      // 3. 注入 ols 数据和图片路径
       if (props.olsData && props.olsData.length > 0) {
         window.ols = props.olsData
+
+        // 构建 fliphtml5_pages 数组，支持完整 URL
+        window.fliphtml5_pages = props.olsData.map(item => {
+          // 如果 item 包含图片 URL，使用它；否则返回 undefined
+          if (item.imageUrl) {
+            return {
+              l: item.imageUrl,  // large 图片
+              n: item.imageUrl,  // normal 图片
+              t: item.imageUrl   // thumb 缩略图
+            }
+          }
+          return undefined
+        })
+
         console.log('目录数据已注入:', props.olsData)
+        console.log('图片路径已配置:', window.fliphtml5_pages)
       } else {
         console.warn('警告: olsData 为空')
         window.ols = []
+        window.fliphtml5_pages = []
       }
 
-      // 4. 配置路径和页面数量
+      // 4. 配置页面数量（保留路径配置作为后备）
       if (window.bookConfig) {
         window.bookConfig.largePath = props.imgPath
         window.bookConfig.normalPath = props.imgPath

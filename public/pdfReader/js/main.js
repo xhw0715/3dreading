@@ -51764,6 +51764,7 @@ var useTheAliCloudChart = function (b, c) {
       this.sideImage = $(
         "<div style='position:absolute;z-index:0;width:100%;height:100%;top:0;left:0;'/>"
       )
+      console.log('sideImage', this.sideImage)
       this.tmpContent.append(this.sideImage)
     },
     initPageSide: function () {

@@ -26,31 +26,42 @@ async function fetchCatalogData() {
           {
             caption: '测试目录1',
             page: '1',
-            fileUrl: 'https://ganxincai.com//static/new/index/banner.png'
+            imageUrl: "https://www.ganxincai.com/minio-api/gxc/upload/20260401/3855da96099b88dbf8ed69400985b9e6.png"
           },
           {
             caption: '测试目录2',
             page: '2',
+            imageUrl: "https://www.ganxincai.com/minio-api/gxc/upload/20260401/eee95821a2d46994e38b2ef459ea8153.png"
+
           },
           {
             caption: '测试目录3',
             page: '3',
+            imageUrl: "https://www.ganxincai.com/minio-api/gxc/upload/20260401/2572e6c070861424549dfdccdbb8647e.png"
+
           },
           {
             caption: '测试目录4',
             page: '4',
+            imageUrl: "https://www.ganxincai.com/minio-api/gxc/upload/20260401/c5917a93a7d7a2c5fba7ecfadde3d899.png"
+
           },
           {
             caption: '测试目录5',
             page: '5',
+            imageUrl: "https://www.ganxincai.com/minio-api/gxc/upload/20260401/6de165cdb506db9f71a96bd6238c49ee.png"
+
           },
           {
             caption: '测试目录6',
             page: '6',
+            imageUrl: "https://www.ganxincai.com/minio-api/gxc/upload/20260401/2572e6c070861424549dfdccdbb8647e.png"
+
           },
           {
             caption: '测试目录7',
             page: '7',
+            imageUrl: "https://www.ganxincai.com/minio-api/gxc/upload/20260401/6de165cdb506db9f71a96bd6238c49ee.png"
           },
         ])
       }, 500) // 模拟 500ms 的网络延迟
